@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class Sort {
     private ArrayList<Movie> list;
 
+    public void setList(ArrayList<Movie> list) {
+        this.list = list;
+    }
+
     public ArrayList<Movie> getList() {
         return list;
     }

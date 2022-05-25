@@ -35,4 +35,11 @@ public class SortTest {
         sort.sortArray();
         assertTrue(sort.isSorted());
     }
+    @Test
+    public void bucketSortAlgorithmTest(){
+        createLists();
+        BucketSort sort = new BucketSort(list);
+        sort.sortArray();
+        assertTrue(sort.isSorted());
+    }
 }
