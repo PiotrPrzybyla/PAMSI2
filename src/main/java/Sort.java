@@ -1,21 +1,29 @@
 import java.util.ArrayList;
 
 public class Sort {
-     ArrayList<Double> list;
+    private ArrayList<Movie> list;
 
-    public ArrayList<Double> getList() {
+    public ArrayList<Movie> getList() {
         return list;
     }
 
-    public Sort(ArrayList<Double> list) {
+    public Sort(ArrayList<Movie> list) {
         this.list = list;
     }
     public void showList(){
-        for (Double movieList: list) {
-            System.out.println("Rank: " + movieList);
+        for (Movie movieList: list) {
+            System.out.println("Rank: " + movieList.getRank());
         }
     }
-    public void sort(){}
+    public boolean isSorted(){
+        for (int i = 0; i < list.size() -1; i++) {
+            if(list.get(i).getRank() > list.get(i+1).getRank()){
+                return false;
+            }
+        }
+        return true;
+    }
+    public void sortArray(){}
 
 
 

@@ -1,41 +1,38 @@
-import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import static org.junit.Assert.*;
 
 public class SortTest {
+    ArrayList<Movie> list = new ArrayList<>();
+    void createLists(){
+      ReadFromFile reader = new ReadFromFile();
+        try {
+            reader.read("C:\\Studia\\4sem\\PAMSI\\Projekt 2\\dane.csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        list = reader.movieList;
+    }
+
     @Test
     public void quickSortAlgorithmTest(){
-        ArrayList<Double> list = new ArrayList<>();
-        ArrayList<Double> sortedList = new ArrayList<>();
+        createLists();
         QuickSort sort;
-
-        list.add(5.0);
-        list.add(3.0);
-        list.add(6.0);
-        list.add(4.5);
-        list.add(2.0);
-        list.add(8.0);
-        list.add(5.5);
-        list.add(1.0);
-        list.add(2.0);
-        list.add(9.5);
-
-        sortedList.addAll(list);
-        Collections.sort(sortedList);
-
-
-
        sort = new QuickSort(list);
        assertTrue(list.equals(sort.getList()));
-       assertEquals(5.0, sort.getList().get(0), 0);
-       sort.sort(0,sort.list.size()-1);
-       sort.showList();
-       assertTrue(sortedList.equals(sort.getList()));
+       sort.sortArray();
+        assertTrue(sort.isSorted());
 
+    }
+    @Test
+    public void mergeSortAlgorithmTest(){
+       createLists();
 
+        MergeSort sort = new MergeSort(list);
+        sort.sortArray();
+        assertTrue(sort.isSorted());
     }
 }
