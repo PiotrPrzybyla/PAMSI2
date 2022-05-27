@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class MergeSort extends Sort{
+public class MergeSort extends Sort implements Runnable{
     public MergeSort(ArrayList<Movie> list) {
         super(list);
     }
@@ -53,5 +53,15 @@ public class MergeSort extends Sort{
             getList().set(indexStart, tempArray.get(i++));
 
         }
+    }
+
+    @Override
+    public void run() {
+//        System.out.println(ANSI_RED + isSorted());
+        long start = System.nanoTime();
+        sortArray();
+        long end = System.nanoTime();
+//        System.out.println(ANSI_RED +isSorted());
+        System.out.println(ANSI_RED +"Time: " + (end-start) + ANSI_RESET);
     }
 }
