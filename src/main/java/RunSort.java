@@ -11,7 +11,7 @@ public class RunSort {
         Thread[] threads = new Thread[3];
         for (int i=0;i<3;i++) {
             try {
-                readerArray[i].read("C:\\Studia\\4sem\\PAMSI\\Projekt 2\\dane.csv");
+                readerArray[i].read("./dane.csv");
             } catch (IOException e) {
                 e.printStackTrace();
             }
